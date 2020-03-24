@@ -6,6 +6,7 @@
 package school;
 
 import entity.Student;
+import java.util.Scanner;
 
 /**
  *
@@ -13,8 +14,19 @@ import entity.Student;
  */
 class StudentCreator {
 
-    Student returnNewStudent() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Student returnNewStudent() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("-----Добавление нового ученика-----");
+        Student student = new Student();
+        System.out.println("Имя ученика:");
+        student.setName(scanner.nextLine());
+        System.out.println("Фамилия ученика:");
+        student.setSurname(scanner.nextLine());
+        System.out.println("Эмайл ученика:");
+        student.setEmail(scanner.nextLine());
+        System.out.println("Номер ученика:");
+        student.setPhone(scanner.nextLine());
+        return student;
     }
     
 }

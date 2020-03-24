@@ -6,6 +6,8 @@
 package school;
 
 import entity.Lesson;
+import entity.SchoolHistory;
+import entity.SchoolHistoryCreator;
 import entity.Student;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,11 +45,17 @@ public class App {
                case 2:
                    StudentCreator studentCreator = new StudentCreator();
                    students.add(studentCreator.returnNewStudent());
+               case 3:
+                   SchoolHistoryCreator schoolHistoryCreator = new SchoolHistoryCreator();
+                   schoolHistories.add(schoolHistoryCreator.returnNewSchoolHistory(lessons, students));
+                   break;
                default:
                    System.out.println("Выберите одно из действий!");
                
            }
        }while("r".equals(repeat));
     }
+    
+    private List<SchoolHistory> schoolHistories = new ArrayList<>();
     
 }
