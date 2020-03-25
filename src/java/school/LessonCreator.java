@@ -16,7 +16,7 @@ class LessonCreator {
 
     public Lesson returnNewLesson() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("-----Добавление новой книги-----");
+        System.out.println("-----Добавление нового урока-----");
         Lesson lesson = new Lesson();
         System.out.println("Название урока:");
         lesson.setLessonName(scanner.nextLine());
