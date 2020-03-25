@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package school;
+package classes;
 
 import entity.Student;
 import java.util.Scanner;
@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Zokerkill
  */
-class StudentCreator {
+public class StudentCreator {
 
     public Student returnNewStudent() {
         Scanner scanner = new Scanner(System.in);

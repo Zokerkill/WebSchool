@@ -27,23 +27,90 @@ public class Lesson {
         this.hours = hours;
     }
 
-    public void setLessonName(String nextLine) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Long getId() {
+        return id;
     }
 
-    public void setTheme(String nextLine) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setTeacher(String nextLine) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getLessonName() {
+        return lessonName;
     }
 
-    public void setHours(String nextLine) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setLessonName(String lessonName) {
+        this.lessonName = lessonName;
     }
 
-    String getLessonName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getTheme() {
+        return theme;
     }
+
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
+
+    public String getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+
+    public Integer getHours() {
+        return hours;
+    }
+
+    public void setHours(Integer hours) {
+        this.hours = hours;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.id);
+        hash = 79 * hash + Objects.hashCode(this.lessonName);
+        hash = 79 * hash + Objects.hashCode(this.theme);
+        hash = 79 * hash + Objects.hashCode(this.teacher);
+        hash = 79 * hash + Objects.hashCode(this.hours);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Lesson other = (Lesson) obj;
+        if (!Objects.equals(this.lessonName, other.lessonName)) {
+            return false;
+        }
+        if (!Objects.equals(this.theme, other.theme)) {
+            return false;
+        }
+        if (!Objects.equals(this.teacher, other.teacher)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.hours, other.hours)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Lesson{" + "id=" + id + ", lessonName=" + lessonName + ", theme=" + theme + ", teacher=" + teacher + ", hours=" + hours + '}';
+    }
+
 }

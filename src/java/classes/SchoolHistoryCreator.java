@@ -3,9 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entity;
+package classes;
 
 
+
+import entity.Lesson;
+import entity.SchoolHistory;
+import entity.Student;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;

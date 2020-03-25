@@ -5,9 +5,13 @@
  */
 package school;
 
+import classes.HistoryChecker;
+import classes.LessonChecker;
+import classes.LessonCreator;
+import classes.SchoolHistoryCreator;
+import classes.StudentCreator;
 import entity.Lesson;
 import entity.SchoolHistory;
-import entity.SchoolHistoryCreator;
 import entity.Student;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +52,13 @@ public class App {
                case 3:
                    SchoolHistoryCreator schoolHistoryCreator = new SchoolHistoryCreator();
                    schoolHistories.add(schoolHistoryCreator.returnNewSchoolHistory(lessons, students));
+                   break;
+               case 4:
+                   
+                   break;
+               case 5:
+                   HistoryChecker historyChecker = new HistoryChecker();
+                   historyChecker.printListWhoWasOnLesson(schoolHistories);
                    break;
                default:
                    System.out.println("Выберите одно из действий!");
