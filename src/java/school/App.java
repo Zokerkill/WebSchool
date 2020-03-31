@@ -54,7 +54,12 @@ public class App {
                    schoolHistories.add(schoolHistoryCreator.returnNewSchoolHistory(lessons, students));
                    break;
                case 4:
-                   
+                   LessonChecker lessonChecker = new LessonChecker();
+                   if(lessonChecker.returnSchoolHistory(schoolHistories)){
+                       System.out.println("Ученик отмечен на уроке");
+                   }else{
+                       System.out.println("Не удалось отметить ученика");
+                   }
                    break;
                case 5:
                    HistoryChecker historyChecker = new HistoryChecker();
