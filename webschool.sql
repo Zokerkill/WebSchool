@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1
--- Время создания: Фев 18 2020 г., 10:21
--- Версия сервера: 10.1.33-MariaDB
--- Версия PHP: 7.2.6
+-- Host: 127.0.0.1
+-- Generation Time: Apr 08, 2020 at 02:20 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,15 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `myschool`
+-- Database: `webschool`
 --
-CREATE DATABASE IF NOT EXISTS `myschool` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `myschool`;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `grade`
+-- Table structure for table `grade`
 --
 
 CREATE TABLE `grade` (
@@ -37,7 +35,7 @@ CREATE TABLE `grade` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `grade`
+-- Dumping data for table `grade`
 --
 
 INSERT INTO `grade` (`ID`, `NAME`, `TEXT`) VALUES
@@ -50,7 +48,7 @@ INSERT INTO `grade` (`ID`, `NAME`, `TEXT`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `history`
+-- Table structure for table `history`
 --
 
 CREATE TABLE `history` (
@@ -62,7 +60,7 @@ CREATE TABLE `history` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `history`
+-- Dumping data for table `history`
 --
 
 INSERT INTO `history` (`ID`, `RECORD`, `GRADE_ID`, `PERSON_ID`, `SUBJECT_ID`) VALUES
@@ -82,7 +80,7 @@ INSERT INTO `history` (`ID`, `RECORD`, `GRADE_ID`, `PERSON_ID`, `SUBJECT_ID`) VA
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `person`
+-- Table structure for table `person`
 --
 
 CREATE TABLE `person` (
@@ -91,7 +89,7 @@ CREATE TABLE `person` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `person`
+-- Dumping data for table `person`
 --
 
 INSERT INTO `person` (`ID`, `NAME`) VALUES
@@ -103,7 +101,7 @@ INSERT INTO `person` (`ID`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -112,7 +110,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`ID`, `ROLE`) VALUES
@@ -123,7 +121,7 @@ INSERT INTO `roles` (`ID`, `ROLE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `subject`
+-- Table structure for table `subject`
 --
 
 CREATE TABLE `subject` (
@@ -133,7 +131,7 @@ CREATE TABLE `subject` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `subject`
+-- Dumping data for table `subject`
 --
 
 INSERT INTO `subject` (`ID`, `NAME`, `TEACHER`) VALUES
@@ -145,7 +143,7 @@ INSERT INTO `subject` (`ID`, `NAME`, `TEACHER`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -157,7 +155,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`ID`, `LOGIN`, `PASSWORD`, `SALTS`, `PERSON_ID`) VALUES
@@ -169,7 +167,7 @@ INSERT INTO `user` (`ID`, `LOGIN`, `PASSWORD`, `SALTS`, `PERSON_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `userroles`
+-- Table structure for table `userroles`
 --
 
 CREATE TABLE `userroles` (
@@ -179,7 +177,7 @@ CREATE TABLE `userroles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `userroles`
+-- Dumping data for table `userroles`
 --
 
 INSERT INTO `userroles` (`ID`, `ROLE_ID`, `USER_ID`) VALUES
@@ -188,17 +186,17 @@ INSERT INTO `userroles` (`ID`, `ROLE_ID`, `USER_ID`) VALUES
 (3, 3, 1);
 
 --
--- Индексы сохранённых таблиц
+-- Indexes for dumped tables
 --
 
 --
--- Индексы таблицы `grade`
+-- Indexes for table `grade`
 --
 ALTER TABLE `grade`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `history`
+-- Indexes for table `history`
 --
 ALTER TABLE `history`
   ADD PRIMARY KEY (`ID`),
@@ -207,26 +205,26 @@ ALTER TABLE `history`
   ADD KEY `FK_HISTORY_SUBJECT_ID` (`SUBJECT_ID`);
 
 --
--- Индексы таблицы `person`
+-- Indexes for table `person`
 --
 ALTER TABLE `person`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`ID`),
   ADD UNIQUE KEY `ROLE` (`ROLE`);
 
 --
--- Индексы таблицы `subject`
+-- Indexes for table `subject`
 --
 ALTER TABLE `subject`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`ID`),
@@ -234,7 +232,7 @@ ALTER TABLE `user`
   ADD KEY `FK_USER_PERSON_ID` (`PERSON_ID`);
 
 --
--- Индексы таблицы `userroles`
+-- Indexes for table `userroles`
 --
 ALTER TABLE `userroles`
   ADD PRIMARY KEY (`ID`),
@@ -242,57 +240,57 @@ ALTER TABLE `userroles`
   ADD KEY `FK_USERROLES_ROLE_ID` (`ROLE_ID`);
 
 --
--- AUTO_INCREMENT для сохранённых таблиц
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT для таблицы `grade`
+-- AUTO_INCREMENT for table `grade`
 --
 ALTER TABLE `grade`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT для таблицы `history`
+-- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT для таблицы `person`
+-- AUTO_INCREMENT for table `person`
 --
 ALTER TABLE `person`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT для таблицы `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT для таблицы `subject`
+-- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT для таблицы `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT для таблицы `userroles`
+-- AUTO_INCREMENT for table `userroles`
 --
 ALTER TABLE `userroles`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Ограничения внешнего ключа сохраненных таблиц
+-- Constraints for dumped tables
 --
 
 --
--- Ограничения внешнего ключа таблицы `history`
+-- Constraints for table `history`
 --
 ALTER TABLE `history`
   ADD CONSTRAINT `FK_HISTORY_GRADE_ID` FOREIGN KEY (`GRADE_ID`) REFERENCES `grade` (`ID`),
@@ -300,13 +298,13 @@ ALTER TABLE `history`
   ADD CONSTRAINT `FK_HISTORY_SUBJECT_ID` FOREIGN KEY (`SUBJECT_ID`) REFERENCES `subject` (`ID`);
 
 --
--- Ограничения внешнего ключа таблицы `user`
+-- Constraints for table `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `FK_USER_PERSON_ID` FOREIGN KEY (`PERSON_ID`) REFERENCES `person` (`ID`);
 
 --
--- Ограничения внешнего ключа таблицы `userroles`
+-- Constraints for table `userroles`
 --
 ALTER TABLE `userroles`
   ADD CONSTRAINT `FK_USERROLES_ROLE_ID` FOREIGN KEY (`ROLE_ID`) REFERENCES `roles` (`ID`),
