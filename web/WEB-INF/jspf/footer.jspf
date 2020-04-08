@@ -1,0 +1,37 @@
+
+<%@page pageEncoding="UTF-8" %>
+
+        <!--<p>Вошедший пользователь: <b>${user.login}</b></p>-->
+        <br>
+        <h2>Для гостей:</h2>
+        <a href="newPerson">Регистрация нового пользователя</a><br>
+        <c:if test="${userRole eq null}">
+        <a href="showLogin">Войти</a><br>
+        </c:if>        
+        <br>
+        <h2>Для вошедших пользователей:</h2>
+        <h3>Для всех пользователей:</h3>
+        <a href="listSubjects">Список предметов</a><br>
+        <c:if test="${userRole ne null}">
+        <a href="logout">Выйти</a><br>
+        </c:if>
+        <h3>Для учителей:</h3>
+        <a href="addRecord">Поставить оценку ученику</a><br>
+        <a href="recPerson">Оценки ученика</a><br>
+        <a href="recSubject">Оценки по предмету</a><br>
+        <br>
+        <h2>Для администратора:</h2>
+        <a href="newSubject">Добавить новый предмет</a><br>
+        <a href="newGrade">Добавить новую оценку</a><br>
+        <a href="listPersons">Список персон</a><br>
+        <a href="listGrades">Список оценок</a><br>
+        <br><br>
+
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script type="module" src="js/header.js"></script>
+    </body>
+</html>
